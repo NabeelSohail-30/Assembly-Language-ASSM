@@ -1,0 +1,22 @@
+     1                                  [org 0x0100]
+     2                                  
+     3                                  ;a program to add 3 numbers using byte variable
+     4                                  
+     5                                  ;start of code
+     6                                  
+     7 00000000 8A26[1D00]                  mov ah, [num] 
+     8 00000004 8826[2000]                  mov [result], ah
+     9                                  
+    10 00000008 8A26[1E00]                  mov ah, [num+1]
+    11 0000000C 0026[2000]                  add [result], ah
+    12                                  
+    13 00000010 8A26[1F00]                  mov ah, [num+2]
+    14 00000014 0026[2000]                  add [result], ah
+    15                                  
+    16 00000018 B8004C                      mov ax, 0x4c00      ;exit
+    17 0000001B CD21                        int 0x21            ;what should os do
+    18                                  
+    19 0000001D 050A14                  num: db 5, 10, 20
+    20 00000020 00                      result: db 0
+    21                                  
+    22                                  ;end of code

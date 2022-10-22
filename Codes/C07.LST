@@ -1,0 +1,22 @@
+     1                                  ; a program to add three numbers using loop
+     2                                  [org 0x0100]
+     3                                  
+     4                                      ;initialize stuff
+     5 00000000 B80000                      mov ax, 0       ;reset the accumlator
+     6 00000003 B90300                      mov cx, 3       ;set the couter
+     7 00000006 BB[1D00]                    mov bx, num     ;set the base address
+     8                                  
+     9                                      outerloop:
+    10 00000009 0307                            add ax, [bx]
+    11 0000000B 81C30200                        add bx, 2
+    12                                  
+    13 0000000F 81E90100                        sub cx, 1
+    14 00000013 75F4                            jnz outerloop
+    15                                      
+    16 00000015 A3[2300]                    mov [result], ax
+    17                                  
+    18 00000018 B8004C                      mov  ax, 0x4c00
+    19 0000001B CD21                        int  0x21
+    20                                  
+    21 0000001D 05000A000F00            num: dw  5, 10, 15
+    22 00000023 0000                    result: dw 0 

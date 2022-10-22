@@ -1,0 +1,16 @@
+     1                                  [org 0x0100]
+     2                                  
+     3                                  ;start of code
+     4                                  
+     5 00000000 B80500                  mov ax, 5       ;move 5 into ax
+     6 00000003 BB0A00                  mov bx, 10      ;move 10 into bx
+     7                                  
+     8 00000006 01D8                    add ax, bx      ;add bx into ax
+     9                                  
+    10 00000008 BB1D00                  mov bx, 29      ;move 29 into bx
+    11 0000000B 01D8                    add ax, bx      ;add bx into ax
+    12                                  
+    13 0000000D B8004C                  mov ax, 0x4c00  ;exit
+    14 00000010 CD21                    int 0x21        ;what should os do
+    15                                  
+    16                                  ;end of code

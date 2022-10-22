@@ -1,0 +1,26 @@
+     1                                  [org 0x0100]
+     2                                  
+     3                                  ;using single label with multiple values
+     4                                  ;we can perform arithmatic same as pointers
+     5                                  ;start of code
+     6                                  
+     7 00000000 A1[1700]                mov ax, [num1]      
+     8 00000003 8B1E[1900]              mov bx, [num1+2]      
+     9                                  
+    10 00000007 01D8                    add ax, bx        
+    11                                  
+    12 00000009 8B1E[1B00]              mov bx, [num1+4]      
+    13 0000000D 01D8                    add ax, bx          
+    14                                  
+    15 0000000F A3[1D00]                mov [num1+6], ax       
+    16                                  
+    17 00000012 B8004C                  mov ax, 0x4c00      ;exit
+    18 00000015 CD21                    int 0x21            ;what should os do
+    19                                  
+    20                                  num1: 
+    21 00000017 0500                        dw 5
+    22 00000019 0A00                        dw 10
+    23 0000001B 1E00                        dw 30
+    24 0000001D 0000                        dw 0
+    25                                  
+    26                                  ;end of code
